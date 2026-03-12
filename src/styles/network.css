@@ -1,0 +1,74 @@
+.section--network {
+  background-color: var(--color-bg-section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.network__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--space-lg) var(--section-px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.network__heading {
+  font-size: var(--text-h2);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  text-align: center;
+  max-width: 700px;
+}
+
+.network__svg-wrap {
+  width: 100%;
+  max-width: 900px;
+  /* GPU layer for the SVG animation */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.network__svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Continent fills */
+.world-map path {
+  fill: var(--color-bg-alt);
+  stroke: var(--color-gray-dark);
+  stroke-width: 0.5;
+}
+
+/* Cable paths — JS sets stroke-dasharray and stroke-dashoffset for draw animation */
+.cable {
+  fill: none;
+  stroke: var(--color-cyan);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  /* Glow effect via filter — compositor-only, no paint triggers */
+  filter: drop-shadow(0 0 3px var(--color-cyan));
+}
+
+.network__caption {
+  font-size: var(--text-small);
+  color: var(--color-gray);
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+/* On mobile, remove the drop-shadow filter to save GPU bandwidth */
+@media (max-width: 599px) {
+  .cable {
+    filter: none;
+  }
+  .network__svg-wrap {
+    will-change: auto;
+  }
+}

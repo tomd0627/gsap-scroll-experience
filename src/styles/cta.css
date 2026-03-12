@@ -1,0 +1,116 @@
+.section--cta {
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background dot pattern — pure CSS, no JS */
+.cta__bg-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: dots-drift 20s linear infinite;
+}
+
+@keyframes dots-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 40px; }
+}
+
+/* Reduced-motion: no background animation */
+@media (prefers-reduced-motion: reduce) {
+  .cta__bg-dots {
+    animation: none;
+  }
+}
+
+.cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--section-px);
+  max-width: 700px;
+}
+
+/* JS adds [data-animate] elements with opacity: 0 initially */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+}
+
+/* Reduced-motion: show everything */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}
+
+.cta__name {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.cta__title {
+  font-size: var(--text-body);
+  font-weight: 300;
+  color: var(--color-cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cta__tagline {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-gray);
+  letter-spacing: 0.05em;
+}
+
+.cta__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
+.cta__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6em 1.4em;
+  border: 1px solid var(--color-cyan);
+  color: var(--color-cyan);
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cta__link:hover,
+.cta__link:focus-visible {
+  background-color: var(--color-cyan);
+  color: var(--color-bg);
+}
+
+.cta__built-with {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-gray-dark);
+  margin-top: var(--space-lg);
+  letter-spacing: 0.03em;
+}

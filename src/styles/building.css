@@ -1,0 +1,94 @@
+.section--building {
+  background-color: var(--color-bg-section);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Layer container — each child is positioned for parallax */
+.building__layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background: CSS grid blueprint */
+.building__layer--bg {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  /* will-change added by JS only during active parallax */
+}
+
+/* Midground: window grid */
+.building__layer--mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.building__windows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  opacity: 0.4;
+}
+
+.building__window {
+  display: block;
+  width: clamp(30px, 5vw, 60px);
+  height: clamp(40px, 7vw, 80px);
+  border: 1px solid var(--color-cyan-dim);
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+/* Light up windows with nth-child staggering for visual interest */
+.building__window:nth-child(2),
+.building__window:nth-child(5),
+.building__window:nth-child(7) {
+  background: rgba(0, 240, 255, 0.08);
+}
+
+/* Foreground: text content */
+.building__layer--fg {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-xl) var(--section-px);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.building__heading {
+  font-size: var(--text-h2);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+  max-width: 600px;
+}
+
+.building__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.building__stat-item {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-cyan);
+  border: 1px solid var(--color-gray-dark);
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}

@@ -1,0 +1,87 @@
+.section--hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: -10%;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 30%, var(--gradient-blob-1), transparent),
+    radial-gradient(ellipse 50% 60% at 80% 70%, var(--gradient-blob-2), transparent),
+    radial-gradient(ellipse 40% 40% at 60% 20%, var(--gradient-blob-3), transparent);
+  animation: hero-gradient-drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes hero-gradient-drift {
+  from { transform: scale(1) rotate(0deg) translate(0, 0); }
+  to   { transform: scale(1.08) rotate(4deg) translate(2%, 3%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg {
+    animation: none;
+  }
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--section-px);
+}
+
+.hero__cursor-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* On init, JS sets this to scale(1). Scales up to fill screen on scroll. */
+  transform-origin: center center;
+}
+
+.hero__cursor {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 700;
+  color: var(--color-cyan);
+  line-height: 1;
+  animation: cursor-blink 1s step-end infinite;
+  filter: drop-shadow(0 0 16px var(--color-cyan));
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.hero__heading {
+  font-size: var(--text-hero);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+.hero__subtext {
+  font-size: var(--text-body);
+  color: var(--color-gray-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Reduced-motion: no cursor blink animation */
+@media (prefers-reduced-motion: reduce) {
+  .hero__cursor {
+    animation: none;
+  }
+}

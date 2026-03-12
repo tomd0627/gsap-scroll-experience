@@ -1,0 +1,23 @@
+/* ============================================
+   Shared Section Layout
+   ============================================ */
+.section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Sections that are full-viewport height */
+.section--hero,
+.section--numbers,
+.section--network,
+.section--terminal,
+.section--cta {
+  min-height: 100vh;
+}
+
+/* Sections that scroll through naturally */
+.section--building,
+.section--people {
+  min-height: 70vh;
+}

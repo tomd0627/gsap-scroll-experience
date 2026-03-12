@@ -1,0 +1,66 @@
+.section--numbers {
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.numbers__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--space-lg) var(--section-px);
+  text-align: center;
+}
+
+.numbers__heading {
+  font-size: var(--text-h2);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--color-gray-light);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xl);
+}
+
+/* 2×2 grid that collapses gracefully on mobile */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  /* JS sets visibility: hidden initially to prevent invisible focus */
+  visibility: visible;
+}
+
+.stat-block__number {
+  display: block;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-cyan);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.4));
+  /* Start at 0 for JS — reduced-motion branch shows final value */
+}
+
+.stat-block__label {
+  display: block;
+  font-size: var(--text-stat-sm);
+  font-weight: 300;
+  color: var(--color-gray-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
