@@ -12,19 +12,27 @@
 .cta__bg-dots {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+
+.cta__bg-dots::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
   background-image: radial-gradient(circle, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: dots-drift 20s linear infinite;
+  will-change: transform;
 }
 
 @keyframes dots-drift {
-  from { background-position: 0 0; }
-  to   { background-position: 40px 40px; }
+  from { transform: translate(0, 0); }
+  to   { transform: translate(40px, 40px); }
 }
 
 /* Reduced-motion: no background animation */
 @media (prefers-reduced-motion: reduce) {
-  .cta__bg-dots {
+  .cta__bg-dots::before {
     animation: none;
   }
 }

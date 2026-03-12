@@ -17,6 +17,7 @@
     radial-gradient(ellipse 50% 60% at 80% 70%, var(--gradient-blob-2), transparent),
     radial-gradient(ellipse 40% 40% at 60% 20%, var(--gradient-blob-3), transparent);
   animation: hero-gradient-drift 20s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 @keyframes hero-gradient-drift {
