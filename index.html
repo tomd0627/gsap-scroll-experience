@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="An interactive scroll experience visualizing the staggering scale of the internet — built with GSAP ScrollTrigger by Tom DeLuca, Senior Front-End Developer." />
-    <title>The Scale of the Internet — Tom DeLuca</title>
+    <meta
+      name="description"
+      content="An interactive scroll experience visualizing the staggering scale of the internet — built with GSAP ScrollTrigger, Vite, and Vanilla JS."
+    />
+    <title>The Scale of the Internet</title>
 
     <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="/src/styles/reset.css" />
     <link rel="stylesheet" href="/src/styles/base.css" />
@@ -23,32 +29,49 @@
     <link rel="stylesheet" href="/src/styles/cta.css" />
   </head>
   <body>
-
     <!-- Skip navigation -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Theme toggle -->
-    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme" title="Toggle theme">
+    <button
+      type="button"
+      class="theme-toggle"
+      id="theme-toggle"
+      aria-label="Switch to light theme"
+      title="Toggle theme"
+    >
       <span class="theme-toggle__icon" aria-hidden="true">◐</span>
     </button>
 
     <main id="main-content">
-
       <!-- Section 0: Hero -->
-      <section id="hero" class="section section--hero" aria-labelledby="hero-heading">
+      <section
+        id="hero"
+        class="section section--hero"
+        aria-labelledby="hero-heading"
+      >
         <div class="hero__bg" aria-hidden="true"></div>
         <div class="hero__inner">
           <div class="hero__cursor-wrap" aria-hidden="true">
             <span class="hero__cursor">|</span>
           </div>
-          <h1 id="hero-heading" class="hero__heading">Every second of every day.</h1>
+          <h1 id="hero-heading" class="hero__heading">
+            Every second of every day.
+          </h1>
           <p class="hero__subtext">Someone is typing.</p>
         </div>
       </section>
 
       <!-- Section 1: Parallax Building -->
-      <section id="building" class="section section--building" aria-labelledby="building-heading">
-        <div class="building__layer building__layer--bg" aria-hidden="true"></div>
+      <section
+        id="building"
+        class="section section--building"
+        aria-labelledby="building-heading"
+      >
+        <div
+          class="building__layer building__layer--bg"
+          aria-hidden="true"
+        ></div>
         <div class="building__layer building__layer--mid" aria-hidden="true">
           <div class="building__windows">
             <span class="building__window" aria-hidden="true"></span>
@@ -63,7 +86,9 @@
           </div>
         </div>
         <div class="building__layer building__layer--fg">
-          <h2 id="building-heading" class="building__heading">Somewhere, a server is running.</h2>
+          <h2 id="building-heading" class="building__heading">
+            Somewhere, a server is running.
+          </h2>
           <ul class="building__stats" aria-label="Data center facts">
             <li class="building__stat-item">12,000+ servers</li>
             <li class="building__stat-item">3 data centers</li>
@@ -73,39 +98,73 @@
       </section>
 
       <!-- Section 2: Count-Up Numbers -->
-      <section id="numbers" class="section section--numbers" aria-labelledby="numbers-heading">
+      <section
+        id="numbers"
+        class="section section--numbers"
+        aria-labelledby="numbers-heading"
+      >
         <div class="numbers__inner">
-          <h2 id="numbers-heading" class="numbers__heading">Right now. This second.</h2>
+          <h2 id="numbers-heading" class="numbers__heading">
+            Right now. This second.
+          </h2>
           <div class="stats-grid" role="list">
-
             <div class="stat-block" role="listitem">
-              <span class="stat-block__number" data-target="3400000" aria-live="polite" aria-atomic="true">3,400,000</span>
+              <span
+                class="stat-block__number"
+                data-target="3400000"
+                aria-live="polite"
+                aria-atomic="true"
+                >3,400,000</span
+              >
               <span class="stat-block__label">emails sent</span>
             </div>
 
             <div class="stat-block" role="listitem">
-              <span class="stat-block__number" data-target="99000" aria-live="polite" aria-atomic="true">99,000</span>
+              <span
+                class="stat-block__number"
+                data-target="99000"
+                aria-live="polite"
+                aria-atomic="true"
+                >99,000</span
+              >
               <span class="stat-block__label">Google searches</span>
             </div>
 
             <div class="stat-block" role="listitem">
-              <span class="stat-block__number" data-target="6000" aria-live="polite" aria-atomic="true">6,000</span>
+              <span
+                class="stat-block__number"
+                data-target="6000"
+                aria-live="polite"
+                aria-atomic="true"
+                >6,000</span
+              >
               <span class="stat-block__label">tweets posted</span>
             </div>
 
             <div class="stat-block" role="listitem">
-              <span class="stat-block__number" data-target="1700" aria-live="polite" aria-atomic="true">1,700</span>
+              <span
+                class="stat-block__number"
+                data-target="1700"
+                aria-live="polite"
+                aria-atomic="true"
+                >1,700</span
+              >
               <span class="stat-block__label">hours of video uploaded</span>
             </div>
-
           </div>
         </div>
       </section>
 
       <!-- Section 3: SVG Network Draw -->
-      <section id="network" class="section section--network" aria-labelledby="network-heading">
+      <section
+        id="network"
+        class="section section--network"
+        aria-labelledby="network-heading"
+      >
         <div class="network__inner">
-          <h2 id="network-heading" class="network__heading">The network that carries it all.</h2>
+          <h2 id="network-heading" class="network__heading">
+            The network that carries it all.
+          </h2>
           <div class="network__svg-wrap">
             <!-- Inline SVG: world map + fiber cable paths -->
             <svg
@@ -118,70 +177,148 @@
               <!-- World map base — simplified continent outlines -->
               <g class="world-map" aria-hidden="true">
                 <!-- North America -->
-                <path id="continent-na" d="M 33 100 L 67 52 L 238 48 L 328 106 L 275 180 L 258 206 L 194 183 L 175 158 L 156 112 L 78 88 Z" />
+                <path
+                  id="continent-na"
+                  d="M 33 100 L 67 52 L 238 48 L 328 106 L 275 180 L 258 206 L 194 183 L 175 158 L 156 112 L 78 88 Z"
+                />
                 <!-- South America -->
-                <path id="continent-sa" d="M 286 228 L 328 217 L 400 264 L 389 317 L 342 344 L 306 403 L 297 375 L 278 278 L 278 250 Z" />
+                <path
+                  id="continent-sa"
+                  d="M 286 228 L 328 217 L 400 264 L 389 317 L 342 344 L 306 403 L 297 375 L 278 278 L 278 250 Z"
+                />
                 <!-- Europe -->
-                <path id="continent-eu" d="M 475 150 L 478 128 L 486 104 L 518 78 L 572 52 L 618 71 L 620 130 L 580 138 L 562 148 L 540 146 L 533 126 L 506 126 L 486 148 Z" />
+                <path
+                  id="continent-eu"
+                  d="M 475 150 L 478 128 L 486 104 L 518 78 L 572 52 L 618 71 L 620 130 L 580 138 L 562 148 L 540 146 L 533 126 L 506 126 L 486 148 Z"
+                />
                 <!-- Africa -->
-                <path id="continent-af" d="M 464 153 L 528 147 L 591 172 L 619 217 L 641 217 L 611 280 L 550 347 L 533 300 L 508 236 L 453 208 L 453 167 Z" />
+                <path
+                  id="continent-af"
+                  d="M 464 153 L 528 147 L 591 172 L 619 217 L 641 217 L 611 280 L 550 347 L 533 300 L 508 236 L 453 208 L 453 167 Z"
+                />
                 <!-- Asia -->
-                <path id="continent-as" d="M 578 136 L 640 124 L 668 63 L 722 50 L 806 50 L 972 69 L 903 97 L 883 153 L 839 167 L 806 194 L 786 236 L 714 228 L 700 186 L 664 189 L 619 217 L 597 170 L 583 150 Z" />
+                <path
+                  id="continent-as"
+                  d="M 578 136 L 640 124 L 668 63 L 722 50 L 806 50 L 972 69 L 903 97 L 883 153 L 839 167 L 806 194 L 786 236 L 714 228 L 700 186 L 664 189 L 619 217 L 597 170 L 583 150 Z"
+                />
                 <!-- Australia -->
-                <path id="continent-au" d="M 817 311 L 839 300 L 864 283 L 903 281 L 919 344 L 911 356 L 883 347 L 819 339 Z" />
+                <path
+                  id="continent-au"
+                  d="M 817 311 L 839 300 L 864 283 L 903 281 L 919 344 L 911 356 L 883 347 L 819 339 Z"
+                />
               </g>
 
               <!-- Submarine fiber cable routes -->
               <g class="fiber-cables" aria-hidden="true">
                 <!-- Trans-Atlantic (NA east coast to Europe west) -->
-                <path id="cable-1" class="cable" d="M 308 132 Q 390 100 475 150" />
+                <path
+                  id="cable-1"
+                  class="cable"
+                  d="M 308 132 Q 390 100 475 150"
+                />
                 <!-- Trans-Pacific (NA west coast to NE Asia) -->
-                <path id="cable-2" class="cable" d="M 156 110 C 200 60 860 60 900 97" />
+                <path
+                  id="cable-2"
+                  class="cable"
+                  d="M 156 110 C 200 60 860 60 900 97"
+                />
                 <!-- NA to South America (Central America to Colombia) -->
-                <path id="cable-3" class="cable" d="M 258 206 Q 272 217 286 228" />
+                <path
+                  id="cable-3"
+                  class="cable"
+                  d="M 258 206 Q 272 217 286 228"
+                />
                 <!-- Europe to Africa (Gibraltar to Morocco) -->
-                <path id="cable-4" class="cable" d="M 475 150 Q 468 152 464 153" />
+                <path
+                  id="cable-4"
+                  class="cable"
+                  d="M 475 150 Q 468 152 464 153"
+                />
                 <!-- Europe to Asia (Turkey to Suez/Red Sea) -->
-                <path id="cable-5" class="cable" d="M 578 136 Q 585 153 591 172" />
+                <path
+                  id="cable-5"
+                  class="cable"
+                  d="M 578 136 Q 585 153 591 172"
+                />
                 <!-- Africa to Asia (Djibouti to India, Indian Ocean) -->
-                <path id="cable-6" class="cable" d="M 641 217 Q 670 202 700 186" />
+                <path
+                  id="cable-6"
+                  class="cable"
+                  d="M 641 217 Q 670 202 700 186"
+                />
                 <!-- SE Asia to Australia (Indonesia to NW Australia) -->
-                <path id="cable-7" class="cable" d="M 786 236 Q 812 268 817 311" />
+                <path
+                  id="cable-7"
+                  class="cable"
+                  d="M 786 236 Q 812 268 817 311"
+                />
                 <!-- Trans-Pacific (Japan to NE Australia) -->
-                <path id="cable-8" class="cable" d="M 883 153 Q 920 218 903 281" />
+                <path
+                  id="cable-8"
+                  class="cable"
+                  d="M 883 153 Q 920 218 903 281"
+                />
                 <!-- South America to Europe (NE Brazil to Portugal) -->
-                <path id="cable-9" class="cable" d="M 400 264 Q 437 207 475 150" />
+                <path
+                  id="cable-9"
+                  class="cable"
+                  d="M 400 264 Q 437 207 475 150"
+                />
                 <!-- South America to Africa (NE Brazil to W Africa) -->
-                <path id="cable-10" class="cable" d="M 400 264 Q 453 252 508 236" />
+                <path
+                  id="cable-10"
+                  class="cable"
+                  d="M 400 264 Q 453 252 508 236"
+                />
               </g>
             </svg>
           </div>
-          <p class="network__caption">485 submarine cable systems. 1.3 million kilometers of fiber.</p>
+          <p class="network__caption">
+            485 submarine cable systems. 1.3 million kilometers of fiber.
+          </p>
         </div>
       </section>
 
       <!-- Section 4: Parallax People -->
-      <section id="people" class="section section--people" aria-labelledby="people-heading">
+      <section
+        id="people"
+        class="section section--people"
+        aria-labelledby="people-heading"
+      >
         <div class="people__bg" aria-hidden="true"></div>
         <div class="people__content">
-          <h2 id="people-heading" class="people__heading">5.4 billion people.<br>Connected.</h2>
+          <h2 id="people-heading" class="people__heading">
+            5.4 billion people.<br />Connected.
+          </h2>
           <p class="people__sub">67% of the world's population, online.</p>
         </div>
       </section>
 
       <!-- Section 5: Terminal -->
-      <section id="terminal" class="section section--terminal" aria-labelledby="terminal-heading">
+      <section
+        id="terminal"
+        class="section section--terminal"
+        aria-labelledby="terminal-heading"
+      >
         <div class="terminal__inner">
           <div class="terminal__left">
-            <h2 id="terminal-heading" class="terminal__heading">Someone built this.</h2>
-            <div class="terminal__window" role="region" aria-label="Code example showing GSAP ScrollTrigger animation">
+            <h2 id="terminal-heading" class="terminal__heading">
+              Someone built this.
+            </h2>
+            <div
+              class="terminal__window"
+              role="region"
+              aria-label="Code example showing GSAP ScrollTrigger animation"
+            >
               <div class="terminal__toolbar" aria-hidden="true">
                 <span class="terminal__dot terminal__dot--red"></span>
                 <span class="terminal__dot terminal__dot--yellow"></span>
                 <span class="terminal__dot terminal__dot--green"></span>
                 <span class="terminal__filename">scroll-experience.js</span>
               </div>
-              <pre class="terminal__code"><code id="terminal-code" aria-label="GSAP ScrollTrigger code example">gsap.registerPlugin(ScrollTrigger);
+              <pre
+                class="terminal__code"
+              ><code id="terminal-code" aria-label="GSAP ScrollTrigger code example">gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".stat-block__number", {
   scrollTrigger: {
@@ -206,51 +343,106 @@ gsap.to(".stat-block__number", {
               aria-hidden="true"
             >
               <!-- Outer ring -->
-              <circle id="portrait-ring-outer" class="portrait-path" cx="150" cy="160" r="120" />
+              <circle
+                id="portrait-ring-outer"
+                class="portrait-path"
+                cx="150"
+                cy="160"
+                r="120"
+              />
               <!-- Inner ring -->
-              <circle id="portrait-ring-inner" class="portrait-path" cx="150" cy="160" r="80" />
+              <circle
+                id="portrait-ring-inner"
+                class="portrait-path"
+                cx="150"
+                cy="160"
+                r="80"
+              />
               <!-- Horizontal cross-line -->
-              <line id="portrait-line-h" class="portrait-path" x1="30" y1="160" x2="270" y2="160" />
+              <line
+                id="portrait-line-h"
+                class="portrait-path"
+                x1="30"
+                y1="160"
+                x2="270"
+                y2="160"
+              />
               <!-- Vertical cross-line -->
-              <line id="portrait-line-v" class="portrait-path" x1="150" y1="40" x2="150" y2="280" />
+              <line
+                id="portrait-line-v"
+                class="portrait-path"
+                x1="150"
+                y1="40"
+                x2="150"
+                y2="280"
+              />
               <!-- Diagonal lines -->
-              <line id="portrait-diag-1" class="portrait-path" x1="65" y1="65" x2="235" y2="255" />
-              <line id="portrait-diag-2" class="portrait-path" x1="235" y1="65" x2="65" y2="255" />
+              <line
+                id="portrait-diag-1"
+                class="portrait-path"
+                x1="65"
+                y1="65"
+                x2="235"
+                y2="255"
+              />
+              <line
+                id="portrait-diag-2"
+                class="portrait-path"
+                x1="235"
+                y1="65"
+                x2="65"
+                y2="255"
+              />
               <!-- Small center circle -->
-              <circle id="portrait-center" class="portrait-path" cx="150" cy="160" r="20" />
+              <circle
+                id="portrait-center"
+                class="portrait-path"
+                cx="150"
+                cy="160"
+                r="20"
+              />
               <!-- Base line -->
-              <line id="portrait-base" class="portrait-path" x1="60" y1="340" x2="240" y2="340" />
+              <line
+                id="portrait-base"
+                class="portrait-path"
+                x1="60"
+                y1="340"
+                x2="240"
+                y2="340"
+              />
               <!-- Name label area -->
-              <rect id="portrait-rect" class="portrait-path" x="90" y="310" width="120" height="2" />
+              <rect
+                id="portrait-rect"
+                class="portrait-path"
+                x="90"
+                y="310"
+                width="120"
+                height="2"
+              />
             </svg>
           </div>
         </div>
       </section>
 
       <!-- Section 6: CTA -->
-      <section id="cta" class="section section--cta" aria-labelledby="cta-heading">
+      <section
+        id="cta"
+        class="section section--cta"
+        aria-labelledby="cta-heading"
+      >
         <div class="cta__inner">
           <div class="cta__bg-dots" aria-hidden="true"></div>
-          <h2 id="cta-heading" class="cta__name" data-animate>Tom DeLuca</h2>
-          <p class="cta__title" data-animate>Senior Front-End Developer</p>
-          <p class="cta__tagline" data-animate>GSAP · React · Accessibility · Performance</p>
-          <nav class="cta__links" aria-label="Contact and portfolio links" data-animate>
-            <a href="https://github.com/tomdeluca" class="cta__link" target="_blank" rel="noopener noreferrer">
-              GitHub
-              <span class="visually-hidden">(opens in new tab)</span>
-            </a>
-            <a href="https://linkedin.com/in/tomdeluca" class="cta__link" target="_blank" rel="noopener noreferrer">
-              LinkedIn
-              <span class="visually-hidden">(opens in new tab)</span>
-            </a>
-            <a href="mailto:tom@example.com" class="cta__link">
-              Email
-            </a>
-          </nav>
-          <p class="cta__built-with" data-animate>Built with GSAP ScrollTrigger · Vite · Vanilla JS</p>
+          <h2 id="cta-heading" class="cta__name" data-animate>
+            It never stops.
+          </h2>
+          <p class="cta__title" data-animate>
+            Every second, someone connects for the first time.
+          </p>
+          <p class="cta__tagline" data-animate>
+            5.4 billion voices. One network. No off switch.
+          </p>
         </div>
       </section>
-
     </main>
 
     <script type="module" src="/src/main.js"></script>
