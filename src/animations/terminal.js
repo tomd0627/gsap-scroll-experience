@@ -11,8 +11,11 @@ export function init() {
   const originalText = codeEl.textContent;
   const chars = [];
 
-  // Clear and re-populate with individual character spans
+  // Clear and re-populate with individual character spans.
+  // Use a DocumentFragment so all spans are inserted in one DOM operation
+  // instead of triggering a reflow on every appendChild.
   codeEl.textContent = '';
+  const fragment = document.createDocumentFragment();
   for (const char of originalText) {
     const span = document.createElement('span');
     span.className = 'char';
@@ -25,9 +28,10 @@ export function init() {
     } else {
       span.textContent = char;
     }
-    codeEl.appendChild(span);
+    fragment.appendChild(span);
     chars.push(span);
   }
+  codeEl.appendChild(fragment);
 
   // --- Portrait SVG: initialize for draw-on ---
   portraitPaths.forEach((path) => {
