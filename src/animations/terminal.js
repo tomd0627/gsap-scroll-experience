@@ -1,5 +1,4 @@
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function init() {
   const section = document.getElementById('terminal');
@@ -42,6 +41,7 @@ export function init() {
     gsap.set(path, {
       strokeDasharray: length,
       strokeDashoffset: length,
+      opacity: 0.6, // restore from CSS opacity: 0 (FOUC guard)
     });
   });
 

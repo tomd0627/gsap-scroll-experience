@@ -16,15 +16,6 @@
   gap: var(--space-lg);
 }
 
-.network__heading {
-  font-size: var(--text-h2);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: var(--color-white);
-  text-align: center;
-  max-width: 700px;
-}
-
 .network__svg-wrap {
   width: 100%;
   max-width: 900px;
@@ -53,6 +44,19 @@
   stroke-linecap: round;
   /* Glow effect via filter — compositor-only, no paint triggers */
   filter: drop-shadow(0 0 3px var(--color-cyan));
+  /* Hidden until svg-draw.js initializes dashoffset and sets opacity: 1 */
+  opacity: 0;
+}
+
+.network__heading {
+  font-size: var(--text-h2);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  text-align: center;
+  max-width: 700px;
+  /* Hidden until svg-draw.js animates it in */
+  opacity: 0;
 }
 
 .network__caption {
@@ -61,6 +65,17 @@
   text-align: center;
   letter-spacing: 0.05em;
   font-family: var(--font-mono);
+  /* Hidden until svg-draw.js animates it in */
+  opacity: 0;
+}
+
+/* Reduced-motion: show network content statically (svg-draw.js never runs) */
+@media (prefers-reduced-motion: reduce) {
+  .network__heading,
+  .network__caption,
+  .cable {
+    opacity: 1;
+  }
 }
 
 /* On mobile, remove the drop-shadow filter to save GPU bandwidth */

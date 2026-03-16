@@ -40,8 +40,16 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  /* JS sets visibility: hidden initially to prevent invisible focus */
-  visibility: visible;
+  /* Hidden by default; countup.js animates these in, or reduced-motion branch reveals them statically */
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-block {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .stat-block__number {

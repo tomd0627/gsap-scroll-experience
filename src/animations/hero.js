@@ -7,13 +7,15 @@ export function init() {
   const heading = section.querySelector('.hero__heading');
   const subtext = section.querySelector('.hero__subtext');
 
-  // Entry animation — fires on load, not on scroll
+  // Entry animation — fires on load, not on scroll.
+  // Uses fromTo() so the end state is explicit (opacity: 1) rather than read
+  // from CSS, which starts at opacity: 0 to prevent FOUC.
   const entryTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
   entryTl
-    .from(cursorWrap, { opacity: 0, scale: 0.5, duration: 0.8 })
-    .from(heading, { opacity: 0, y: 30, duration: 0.7 }, '-=0.3')
-    .from(subtext, { opacity: 0, y: 20, duration: 0.5 }, '-=0.3');
+    .fromTo(cursorWrap, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.8 })
+    .fromTo(heading,    { opacity: 0, y: 30 },       { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+    .fromTo(subtext,    { opacity: 0, y: 20 },       { opacity: 1, y: 0, duration: 0.5 }, '-=0.3');
 
   // Scroll-driven cursor scale-up — pins the hero section while cursor scales
   ScrollTrigger.create({

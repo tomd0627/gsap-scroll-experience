@@ -35,6 +35,14 @@
   color: var(--color-white);
   margin-bottom: var(--space-lg);
   line-height: 1.1;
+  /* Hidden until terminal.js animates it in */
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 599px) {
+  .terminal__heading {
+    opacity: 1;
+  }
 }
 
 /* Terminal window chrome */
@@ -85,7 +93,15 @@
   line-height: 1.7;
   color: var(--color-gray-light);
   white-space: pre;
-  /* JS splits this into character spans for typewriter effect */
+  /* Hidden until JS splits into char spans; mobile/reduced-motion override below */
+  visibility: hidden;
+}
+
+/* On mobile (terminal.js doesn't run) and reduced-motion, show code directly */
+@media (max-width: 599px), (prefers-reduced-motion: reduce) {
+  .terminal__code code {
+    visibility: visible;
+  }
 }
 
 /* Character spans added by JS */
@@ -120,6 +136,12 @@
   stroke: var(--color-cyan);
   stroke-width: 1;
   stroke-linecap: round;
-  opacity: 0.6;
-  /* JS sets stroke-dasharray/stroke-dashoffset for draw animation */
+  /* Hidden until terminal.js sets dashoffset and restores opacity */
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 599px) {
+  .portrait-path {
+    opacity: 0.6;
+  }
 }

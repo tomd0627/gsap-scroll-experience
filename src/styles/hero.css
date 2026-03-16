@@ -45,7 +45,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* On init, JS sets this to scale(1). Scales up to fill screen on scroll. */
+  /* Hidden until hero.js entry animation plays */
+  opacity: 0;
   transform-origin: center center;
 }
 
@@ -57,7 +58,7 @@
   color: var(--color-cyan);
   line-height: 1;
   animation: cursor-blink 1s step-end infinite;
-  filter: drop-shadow(0 0 16px var(--color-cyan));
+  will-change: opacity;
 }
 
 @keyframes cursor-blink {
@@ -71,6 +72,8 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--color-white);
+  /* Hidden until hero.js entry animation plays */
+  opacity: 0;
 }
 
 .hero__subtext {
@@ -78,6 +81,17 @@
   color: var(--color-gray-light);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  /* Hidden until hero.js entry animation plays */
+  opacity: 0;
+}
+
+/* Reduced-motion: show hero content immediately, no entry animation */
+@media (prefers-reduced-motion: reduce) {
+  .hero__cursor-wrap,
+  .hero__heading,
+  .hero__subtext {
+    opacity: 1;
+  }
 }
 
 /* Reduced-motion: no cursor blink animation */
