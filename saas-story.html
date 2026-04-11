@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A scroll-driven product story — from first commit to Series A. Built with GSAP ScrollTrigger."
+    />
+    <title>Fieldnotes — A SaaS Launch Story</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=optional"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=optional"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <link rel="stylesheet" href="/src/styles/reset.css" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/sections.css" />
+    <link rel="stylesheet" href="/src/styles/hero.css" />
+    <link rel="stylesheet" href="/src/styles/numbers.css" />
+    <link rel="stylesheet" href="/src/styles/terminal.css" />
+    <link rel="stylesheet" href="/src/styles/cta.css" />
+    <link rel="stylesheet" href="/src/styles/saas-story.css" />
+  </head>
+  <body>
+    <!-- Mobile notice -->
+    <div class="mobile-notice" id="mobileNotice" role="status" aria-live="polite" aria-label="Site notice">
+      Best experienced on desktop — scroll animations are reduced on mobile.
+      <button class="mobile-notice__dismiss" aria-label="Dismiss notice" type="button">✕</button>
+    </div>
+
+    <!-- Skip navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Theme toggle -->
+    <button
+      type="button"
+      class="theme-toggle"
+      id="theme-toggle"
+      aria-label="Switch to light theme"
+      title="Toggle theme"
+    >
+      <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+    </button>
+
+    <main id="main-content">
+
+      <!-- Section 0: Hero -->
+      <section
+        id="hero"
+        class="section section--hero"
+        aria-labelledby="hero-heading"
+      >
+        <div class="hero__bg" aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <div class="hero__cursor-wrap" aria-hidden="true">
+            <span class="hero__cursor">|</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero__heading">
+            An idea. A problem.<br />A team of three.
+          </h1>
+
+          <p class="hero__subtext">Day one.</p>
+        </div>
+      </section>
+
+      <!-- Section 1: Timeline -->
+      <section
+        id="timeline"
+        class="section section--timeline"
+        aria-labelledby="timeline-heading"
+      >
+        <div class="timeline__inner">
+          <h2 id="timeline-heading" class="timeline__heading">
+            180 days.<br />One commit at a time.
+          </h2>
+          <ol class="timeline__list" role="list">
+            <li class="milestone">
+              <span class="milestone__day">Day 1</span>
+              <span class="milestone__text">First commit. A shared doc. No product yet.</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__day">Day 14</span>
+              <span class="milestone__text">First user signs up. A friend, but still.</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__day">Day 60</span>
+              <span class="milestone__text">1,000 users. Word of mouth. No marketing spend.</span>
+            </li>
+            <li class="milestone milestone--featured">
+              <span class="milestone__day">Day 90</span>
+              <span class="milestone__text">Featured on Product Hunt. 10,000 users overnight.</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__day">Day 120</span>
+              <span class="milestone__text">First enterprise customer. First real contract.</span>
+            </li>
+            <li class="milestone milestone--featured">
+              <span class="milestone__day">Day 180</span>
+              <span class="milestone__text">50,000 users. 47 countries. Series A closed.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Section 2: Numbers -->
+      <section
+        id="numbers"
+        class="section section--numbers"
+        aria-labelledby="numbers-heading"
+      >
+        <div class="numbers__inner">
+          <h2 id="numbers-heading" class="numbers__heading">By the numbers.</h2>
+          <div class="stats-grid" role="list">
+
+            <div class="stat-block" role="listitem">
+              <span
+                class="stat-block__number"
+                data-target="50000"
+                aria-live="polite"
+                aria-label="Monthly active users: 50,000"
+              >50,000</span>
+              <span class="stat-block__label">Monthly Active Users</span>
+            </div>
+
+            <div class="stat-block" role="listitem">
+              <span
+                class="stat-block__number"
+                data-target="47"
+                aria-live="polite"
+                aria-label="Countries: 47"
+              >47</span>
+              <span class="stat-block__label">Countries</span>
+            </div>
+
+            <div class="stat-block" role="listitem">
+              <span
+                class="stat-block__number"
+                data-target="12"
+                aria-live="polite"
+                aria-label="Enterprise customers: 12"
+              >12</span>
+              <span class="stat-block__label">Enterprise Customers</span>
+            </div>
+
+            <div class="stat-block" role="listitem">
+              <span
+                class="stat-block__number"
+                data-target="180"
+                aria-live="polite"
+                aria-label="Days from first commit to Series A: 180"
+              >180</span>
+              <span class="stat-block__label">Days to Series A</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Terminal — the feature that caused the spike -->
+      <section
+        id="terminal"
+        class="section section--terminal"
+        aria-labelledby="terminal-heading"
+      >
+        <div class="terminal__inner">
+          <div class="terminal__left">
+            <h2 id="terminal-heading" class="terminal__heading">
+              The feature that changed everything.
+            </h2>
+            <div class="terminal__window" role="region" aria-label="Code example">
+              <div class="terminal__toolbar" aria-hidden="true">
+                <span class="terminal__dot terminal__dot--red"></span>
+                <span class="terminal__dot terminal__dot--yellow"></span>
+                <span class="terminal__dot terminal__dot--green"></span>
+                <span class="terminal__filename">collab.js</span>
+              </div>
+              <pre class="terminal__code"><code
+                  id="terminal-code"
+                  aria-label="Real-time collaboration feature code"
+                >// Real-time collab — the feature that
+// drove 10× retention in week 9.
+
+function syncCursor(editor, socket) {
+  editor.on('cursorActivity', () => {
+    socket.emit('cursor', {
+      user:     session.id,
+      position: editor.getCursor(),
+      color:    palette[session.index],
+    });
+  });
+
+  socket.on('cursor', ({ user, position, color }) => {
+    if (user === session.id) return;
+    drawRemoteCursor(position, color);
+  });
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="terminal__right" aria-hidden="true">
+            <div class="saas-result">
+              <p class="saas-result__label">Week 9 retention lift</p>
+              <p class="saas-result__value">10×</p>
+              <p class="saas-result__context">After shipping real-time cursors</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: CTA -->
+      <section
+        id="cta"
+        class="section section--cta"
+        aria-labelledby="cta-heading"
+      >
+        <div class="cta__inner">
+          <div class="cta__bg-dots" aria-hidden="true"></div>
+          <h2 id="cta-heading" class="cta__name" data-animate>
+            It shipped.
+          </h2>
+          <p class="cta__title" data-animate>
+            50,000 customers. 47 countries.
+          </p>
+          <p class="cta__tagline" data-animate>
+            Three people. One document. 180 days.
+          </p>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="Previous experience">
+        <a href="/index.html" class="page-footer__link">
+          <span aria-hidden="true">←</span> Back: The Scale of the Internet
+        </a>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/saas/main.js"></script>
+  </body>
+</html>

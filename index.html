@@ -36,8 +36,15 @@
     <link rel="stylesheet" href="/src/styles/people.css" />
     <link rel="stylesheet" href="/src/styles/terminal.css" />
     <link rel="stylesheet" href="/src/styles/cta.css" />
+    <link rel="stylesheet" href="/src/styles/built-this.css" />
   </head>
   <body>
+    <!-- Mobile notice -->
+    <div class="mobile-notice" id="mobileNotice" role="status" aria-live="polite" aria-label="Site notice">
+      Best experienced on desktop — scroll animations are reduced on mobile.
+      <button class="mobile-notice__dismiss" aria-label="Dismiss notice" type="button">✕</button>
+    </div>
+
     <!-- Skip navigation -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -452,6 +459,50 @@ gsap.to(".stat-block__number", {
           </p>
         </div>
       </section>
+
+      <!-- How I built this -->
+      <section class="built-this" id="built-this" aria-label="How I built this">
+        <div class="built-this__inner">
+          <h2 class="built-this__heading">How I built this</h2>
+          <div class="built-this__items">
+
+            <details class="built-this__item">
+              <summary class="built-this__summary">Why ScrollTrigger scrub over custom scroll listeners</summary>
+              <div class="built-this__body">
+                <p><code>scrub: 1</code> ties animation progress directly to scroll position via GSAP's internal RAF loop, avoiding scroll event throttling, jank from layout thrashing, and manual lerp implementations. Custom listeners on <code>window.scroll</code> fire on the main thread and can't be composed the way <code>ScrollTrigger.normalizeScroll</code> handles iOS momentum — where native scroll events don't fire at all during the deceleration phase.</p>
+              </div>
+            </details>
+
+            <details class="built-this__item">
+              <summary class="built-this__summary">How mobile performance was handled</summary>
+              <div class="built-this__body">
+                <p><code>gsap.matchMedia()</code> dynamically imports animation modules only for the active breakpoint — not just disabling them, but skipping the <code>import()</code> entirely so the JS is never parsed. Parallax on mobile causes forced reflow on every frame; skipping <code>parallax-building.js</code> and <code>parallax-people.js</code> completely keeps the bundle lean. The SVG submarine cable count also drops from 10 → 4 on mobile, eliminating the most expensive paint operations.</p>
+              </div>
+            </details>
+
+            <details class="built-this__item">
+              <summary class="built-this__summary">The typewriter effect without a library</summary>
+              <div class="built-this__body">
+                <p><code>terminal.js</code> splits the visible code block into individual <code>&lt;span class="char"&gt;</code> elements at runtime, then reveals them with <code>gsap.to</code> at a 0.008s stagger per character. Spaces are replaced with <code>&amp;nbsp;</code> plus a <code>letter-spacing</code> adjustment to preserve monospace column alignment. For reduced-motion and mobile the characters remain visible via CSS — no JS fallback needed.</p>
+              </div>
+            </details>
+
+            <details class="built-this__item">
+              <summary class="built-this__summary">SVG stroke animation</summary>
+              <div class="built-this__body">
+                <p>Each submarine cable path starts invisible: <code>strokeDasharray</code> and <code>strokeDashoffset</code> are both set to the path's total length via <code>getTotalLength()</code>, called once on init and cached. GSAP then animates <code>strokeDashoffset</code> to <code>0</code> as the section scrubs into view — an operation the browser can composite on the GPU without triggering layout recalculation.</p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer" aria-label="Next experience">
+        <a href="/saas-story.html" class="page-footer__link">
+          Next: Fieldnotes — A SaaS Launch Story <span aria-hidden="true">→</span>
+        </a>
+      </footer>
     </main>
 
     <script type="module" src="/src/main.js"></script>

@@ -1,0 +1,126 @@
+/* ============================================
+   Saas Story — Page-Specific Styles
+   ============================================ */
+
+/* ---- Timeline section ---- */
+.section--timeline {
+  min-height: 100vh;
+  background-color: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--space-lg) var(--section-px);
+}
+
+.timeline__heading {
+  font-size: var(--text-h2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  line-height: 1.1;
+  /* Hidden until timeline.js animates it in */
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__heading {
+    opacity: 1;
+  }
+}
+
+.timeline__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.milestone {
+  display: flex;
+  gap: var(--space-md);
+  align-items: baseline;
+  /* Hidden until timeline.js animates it in */
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .milestone {
+    opacity: 1;
+  }
+}
+
+.milestone__day {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-cyan);
+  min-width: 4.5rem;
+  flex-shrink: 0;
+}
+
+.milestone__text {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  color: var(--color-gray-light);
+  line-height: 1.5;
+}
+
+.milestone--featured .milestone__text {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* ---- Saas terminal: result card instead of portrait ---- */
+.saas-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-gray-dark);
+  border-radius: 8px;
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.saas-result__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.saas-result__value {
+  font-family: var(--font-sans);
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--color-cyan);
+  line-height: 1;
+  filter: drop-shadow(0 0 24px rgba(245, 158, 11, 0.4));
+}
+
+.saas-result__context {
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  color: var(--color-gray);
+  line-height: 1.4;
+  max-width: 16rem;
+}
+
+/* Light theme overrides */
+[data-theme="light"] .saas-result {
+  background: #f5f0e8;
+  border-color: #d0c8b8;
+}
+
+[data-theme="light"] .saas-result__value {
+  filter: drop-shadow(0 0 20px rgba(180, 83, 9, 0.3));
+}

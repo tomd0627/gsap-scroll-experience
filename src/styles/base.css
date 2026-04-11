@@ -196,3 +196,98 @@ body {
   border-color: var(--color-cyan);
   color: var(--color-cyan);
 }
+
+/* ============================================
+   Page Footer Nav (end-of-page experience link)
+   ============================================ */
+.page-footer {
+  background: var(--color-bg-section);
+  border-top: 1px solid var(--color-gray-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) var(--section-px);
+}
+
+.page-footer__link {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  color: var(--color-gray);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: color 0.2s;
+}
+
+.page-footer__link:hover,
+.page-footer__link:focus-visible {
+  color: var(--color-cyan);
+  outline: none;
+}
+
+.page-footer__link:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+[data-theme="light"] .page-footer {
+  background: #f0ebe0;
+  border-top-color: #d0c8b8;
+}
+
+/* ============================================
+   Mobile Notice
+   ============================================ */
+.mobile-notice {
+  display: none;
+}
+
+@media (max-width: 599px) {
+  .mobile-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-bg-section);
+    border-top: 1px solid var(--color-gray-dark);
+    color: var(--color-gray);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1.4;
+  }
+
+  .mobile-notice--hidden {
+    display: none;
+  }
+}
+
+.mobile-notice__dismiss {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.mobile-notice__dismiss:hover,
+.mobile-notice__dismiss:focus-visible {
+  color: var(--color-cyan);
+  outline: none;
+}
+
+.mobile-notice__dismiss:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

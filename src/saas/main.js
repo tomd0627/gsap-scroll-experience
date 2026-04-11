@@ -54,15 +54,12 @@ gsap.registerPlugin(ScrollTrigger);
 // iOS scroll normalization — must register before any ScrollTrigger instances
 ScrollTrigger.normalizeScroll(true);
 
-// Hero entry animation has no scroll or font-layout dependencies — start it
-// immediately so the heading is visible as early as possible (LCP).
-// Reduced-motion users get the hero statically via CSS, so skip the import.
+// Hero entry animation — start before fonts.ready for LCP
 if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-  import('./animations/hero.js').then(({ init }) => init());
+  import('../animations/hero.js').then(({ init }) => init());
 }
 
-// All scroll-triggered animations wait for fonts.ready so pin positions are
-// calculated against the correct rendered layout, not a fallback font.
+// All scroll-triggered animations wait for fonts so pin positions are accurate
 document.fonts.ready.then(() => {
   initAnimations();
   ScrollTrigger.refresh();
@@ -79,16 +76,18 @@ function initAnimations() {
       el.style.transform = 'none';
     });
 
-    // Stat blocks are hidden by CSS for the animated path; reveal them statically here
     document.querySelectorAll('.stat-block').forEach((el) => {
       el.style.opacity = '1';
       el.style.visibility = 'visible';
     });
 
-    // Make counter numbers show final value immediately
     document.querySelectorAll('.stat-block__number').forEach((el) => {
       const target = parseInt(el.dataset.target, 10);
       el.textContent = new Intl.NumberFormat().format(target);
+    });
+
+    document.querySelectorAll('.milestone').forEach((el) => {
+      el.style.opacity = '1';
     });
   });
 
@@ -103,44 +102,21 @@ function initAnimations() {
         isMobile: '(max-width: 599px)',
       },
       (context) => {
-        const { isDesktop, isTablet, isMobile } = context.conditions;
+        const { isMobile } = context.conditions;
 
-        // Load animation modules dynamically to allow tree-shaking.
-        // hero.js is excluded — it already started before fonts.ready for LCP.
         Promise.all([
-          import('./animations/countup.js'),
-          import('./animations/svg-draw.js'),
-          import('./animations/cta.js'),
-          !isMobile ? import('./animations/parallax-building.js') : Promise.resolve(null),
-          !isMobile ? import('./animations/parallax-people.js') : Promise.resolve(null),
-          !isMobile ? import('./animations/terminal.js') : Promise.resolve(null),
-        ]).then(([countup, svgDraw, cta, parallaxBuilding, parallaxPeople, terminal]) => {
+          import('./timeline.js'),
+          import('../animations/countup.js'),
+          import('../animations/cta.js'),
+          !isMobile ? import('../animations/terminal.js') : Promise.resolve(null),
+        ]).then(([timeline, countup, cta, terminal]) => {
+          timeline.init();
           countup.init();
-
-          const pathCount = isDesktop ? 10 : isTablet ? 6 : 4;
-          svgDraw.init(pathCount);
-
           cta.init();
-
-          if (parallaxBuilding) {
-            const intensity = isTablet ? 0.5 : 1.0;
-            parallaxBuilding.init(intensity);
-          }
-
-          if (parallaxPeople) {
-            const intensity = isTablet ? 0.5 : 1.0;
-            parallaxPeople.init(intensity);
-          }
-
-          if (terminal) {
-            terminal.init();
-          }
-
-          // Refresh after all animations are registered
+          if (terminal) terminal.init();
           ScrollTrigger.refresh();
         });
 
-        // Cleanup function — runs when matchMedia condition changes (e.g. resize)
         return () => {
           ScrollTrigger.getAll().forEach((st) => st.kill());
         };
