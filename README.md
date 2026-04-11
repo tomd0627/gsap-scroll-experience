@@ -1,8 +1,10 @@
-# The Scale of the Internet — GSAP Scroll Experience
+# GSAP Scroll Experience — Portfolio Demo
 
-An interactive scroll-driven experience visualizing the staggering scale of the internet. Built as a portfolio showcase demonstrating advanced GSAP ScrollTrigger techniques.
+Two scroll-driven experiences built as a front-end portfolio showcase, demonstrating advanced GSAP ScrollTrigger techniques and accessible, responsive UI patterns.
 
-## What's in it
+## Experiences
+
+### 1. The Scale of the Internet (`index.html`)
 
 Six scroll-triggered sections, each using a distinct GSAP technique:
 
@@ -15,10 +17,24 @@ Six scroll-triggered sections, each using a distinct GSAP technique:
 | Parallax People   | Dot-grid parallax with fade                         |
 | Terminal / CTA    | Sequential SVG draw + staggered entrance            |
 
+### 2. Fieldnotes: A SaaS Story (`saas-story.html`)
+
+A business narrative told through scroll — five sections following a startup from idea to launch:
+
+| Section   | Technique                                            |
+| --------- | ---------------------------------------------------- |
+| Hero      | Entrance animation with staggered text reveal        |
+| Timeline  | Pinned scrub — milestone cards animate in sequence   |
+| Numbers   | Count-up stats on scroll entry                       |
+| Terminal  | Sequential SVG draw + typed output                   |
+| CTA       | Staggered entrance on scroll                         |
+
+Page-footer navigation links between both experiences.
+
 ## Stack
 
 - **GSAP 3** (ScrollTrigger, DrawSVGPlugin)
-- **Vite** — dev server and build
+- **Vite** — dev server and multi-page build
 - **Vanilla JS** — no framework
 - **CSS custom properties** — warm obsidian/amber palette with dark/light theme toggle
 
@@ -36,12 +52,18 @@ npm run build    # production build → dist/
 npm run preview  # preview the build locally
 ```
 
+## Features
+
+- **"How I built this" accordion** — collapsible section on the landing page covering four key technical decisions
+- **Mobile notice banner** — dismissible banner alerting mobile visitors that the experience is optimized for desktop (`role="status"` for screen reader compatibility)
+
 ## Accessibility
 
 - Skip-to-content link
-- All decorative SVGs marked `aria-hidden`
+- All decorative SVGs and arrow characters marked `aria-hidden`
 - `aria-live` regions on animated stat numbers
-- Full keyboard navigation and focus-visible styles
+- `role="status"` on the dismissible mobile notice banner
+- Full keyboard navigation, logical tab order, and focus-visible styles
 - Respects `prefers-reduced-motion` (GSAP's built-in support)
 
 ---
